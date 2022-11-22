@@ -29,7 +29,7 @@ public class Game
         return 10 + Bowls[frameIndex + 2];
     }
 
-    public void BowlTheBall(int pins)
+    public void AddBowlsToGame(int pins)
         {
             Bowls.Add(pins);
         }

@@ -28,7 +28,7 @@ namespace TestProjectBowling
         public void ShouldBeExpectedSpareScore()
         {
             RollSpare();
-            _game.BowlTheBall(3);
+            _game.AddBowlsToGame(3);
 
             MultipleRolls(17, 0); //17 remaining bowls of a total of 20
 
@@ -37,15 +37,15 @@ namespace TestProjectBowling
 
         private void RollSpare()
         {
-            _game.BowlTheBall(5);
-            _game.BowlTheBall(5);
+            _game.AddBowlsToGame(5);
+            _game.AddBowlsToGame(5);
         }
 
         public void MultipleRolls(int bowls,int pins)
         {
             for (int i = 0; i < bowls; i++)
             {
-                _game.BowlTheBall(pins);
+                _game.AddBowlsToGame(pins);
             }
         }
     }
