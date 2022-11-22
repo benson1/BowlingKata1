@@ -27,14 +27,20 @@ namespace TestProjectBowling
         [Test]
         public void ShouldBeExpectedSpareScore()
         {
-            _game.BowlTheBall(5);
-            _game.BowlTheBall(5);//this is a spare
+            RollSpare();
             _game.BowlTheBall(3);
 
             MultipleRolls(17, 0); //17 remaining bowls of a total of 20
 
             Assert.AreEqual(16, _game.GetScore()); //expecting bonus of the third bowl
         }
+
+        private void RollSpare()
+        {
+            _game.BowlTheBall(5);
+            _game.BowlTheBall(5);
+        }
+
         public void MultipleRolls(int bowls,int pins)
         {
             for (int i = 0; i < bowls; i++)

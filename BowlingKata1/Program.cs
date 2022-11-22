@@ -7,14 +7,36 @@ public class Game
     public int GetScore()
     {
         int score = 0;
-        for (int i = 0; i < Bowls.Count; i++)
+        int frameIndex = 0;
+        for (int frame = 0; frame < 10; frame++)
         {
-        score += Bowls[i];
+            if (IsSpare(frameIndex))
+            {
+                score += SpareBonus(frameIndex);
+                frameIndex += 2;
+            }
+            else
+            {
+                score += Bowls[frameIndex] + Bowls[frameIndex + 1];
+                frameIndex += 2;
+            }
         }
         return score;
     }
-        public void BowlTheBall(int pins)
+
+    private int SpareBonus(int frameIndex)
+    {
+        return 10 + Bowls[frameIndex + 2];
+    }
+
+    public void BowlTheBall(int pins)
         {
             Bowls.Add(pins);
         }
+
+    private bool IsSpare(int i)
+    {
+        return Bowls[i] + Bowls[i + 1] == 10;
     }
+
+}
