@@ -3,10 +3,18 @@ Console.WriteLine("Hello, World!");
 
 public class Game
 {
-    private int Score = 0;
-    public int GetScore() => Score;
-    public void BowlTheBall(int pins)
+    private List<int> Bowls = new List<int>();
+    public int GetScore()
     {
-        Score += pins;
+        int score = 0;
+        for (int i = 0; i < Bowls.Count; i++)
+        {
+        score += Bowls[i];
+        }
+        return score;
     }
-}
+        public void BowlTheBall(int pins)
+        {
+            Bowls.Add(pins);
+        }
+    }
