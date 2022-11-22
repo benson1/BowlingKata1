@@ -26,7 +26,7 @@ namespace TestProjectBowling
             {
                 game.BowlTheBall(1);
             }
-            Assert.AreEqual(0, game.GetScore());
+            Assert.AreEqual(20, game.GetScore());
         }
     }
 }

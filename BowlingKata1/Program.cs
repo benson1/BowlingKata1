@@ -3,9 +3,10 @@ Console.WriteLine("Hello, World!");
 
 public class Game
 {
-    public int GetScore() => -1;
+    private int Score = 0;
+    public int GetScore() => Score;
     public void BowlTheBall(int pins)
     {
-
+        Score += pins;
     }
 }
