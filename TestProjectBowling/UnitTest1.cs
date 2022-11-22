@@ -1,32 +1,36 @@
 namespace TestProjectBowling
 {
-    public class Tests
+    public class BowlingTests
     {
-        [SetUp]
-        public void Setup()
+        private Game _game;
+        
+        public BowlingTests() 
         {
+            _game = new Game(); 
         }
 
         [Test]
         public void ShouldBe0_ZeroPinsPerBowl()
         {
-            Game game = new Game();
-            for (int i = 0; i < 20; i++)
-            {
-                game.BowlTheBall(0);
-            }
-            Assert.AreEqual(0, game.GetScore());
+
+            MultipleRolls(20, 0);
+            Assert.AreEqual(0, _game.GetScore());
         }
 
         [Test]
         public void ShouldBe20_ScoreOnePinPerThrow()
         {
-            Game game = new Game();
-            for (int i = 0; i < 20; i++)
+
+            MultipleRolls(20, 1);
+            Assert.AreEqual(20, _game.GetScore());
+        }
+
+        public void MultipleRolls(int bowls,int pins)
+        {
+            for (int i = 0; i < bowls; i++)
             {
-                game.BowlTheBall(1);
+                _game.BowlTheBall(pins);
             }
-            Assert.AreEqual(20, game.GetScore());
         }
     }
 }
