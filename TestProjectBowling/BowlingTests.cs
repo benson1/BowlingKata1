@@ -30,9 +30,15 @@ namespace TestProjectBowling
             RollSpare();
             _game.AddBowlsToGame(3);
 
-            MultipleRolls(17, 0); //17 remaining bowls of a total of 20
+            MultipleRolls(17, 0); 
 
-            Assert.AreEqual(16, _game.GetScore()); //expecting bonus of the third bowl
+            Assert.AreEqual(16, _game.GetScore()); 
+        }
+
+        [Test]
+        public void ShouldBeExpectedStrikeScore()
+        {
+
         }
 
         private void RollSpare()
